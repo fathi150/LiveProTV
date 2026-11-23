@@ -1,0 +1,3 @@
+-keep class com.livepro.tv.model.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
