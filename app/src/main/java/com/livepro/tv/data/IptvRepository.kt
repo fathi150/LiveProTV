@@ -91,8 +91,8 @@ class IptvRepository {
             for (rawLine in lines) {
                 val line = rawLine.trim()
                 if (line.startsWith("#EXTINF")) {
-                    currentGroup = Regex("group-title="([^"]+)"").find(line)?.groupValues?.get(1) ?: "عام"
-                    currentLogo = Regex("tvg-logo="([^"]+)"").find(line)?.groupValues?.get(1) ?: ""
+                   currentGroup = Regex("group-title=\"([^\"]+)\"").find(line)?.groupValues?.get(1) ?: "عام"
+                   currentLogo = Regex("tvg-logo=\"([^\"]+)\"").find(line)?.groupValues?.get(1) ?: ""
                     currentName = line.substringAfterLast(",").trim().ifBlank { "Channel $index" }
                     categoriesMap.putIfAbsent(currentGroup, currentGroup)
                 } else if (line.isNotBlank() && !line.startsWith("#")) {
